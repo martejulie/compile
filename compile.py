@@ -8,7 +8,7 @@ import os
 def compilefile(filename, bibtex):
     """
     Compiles your tex-file with pdflatex (and bibtex if bibtex=True)
-    and writes a nicely formatted error message in the terminal.
+    and writes a nicely formatted error message to the terminal.
     """
     DEVNULL = open(os.devnull, 'wb')
     if bibtex:
