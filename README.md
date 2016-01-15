@@ -1,5 +1,5 @@
 # ltx
-Compiles your tex-file twice with pdflatex and writes a nicely formatted error message to the terminal. It also runs auxiliary programs like biber automatically 
+Compiles your tex-file twice with pdflatex and writes a nicely formatted error message to the terminal. It also runs auxiliary programs like biber automatically.
 
 Usage
 -----
