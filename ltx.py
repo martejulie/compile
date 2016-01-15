@@ -5,7 +5,7 @@ import subprocess
 import argparse
 import os
 
-def compilefile(filename, bibtex):
+def compilefile(filename, bibtex, biblatex):
     """
     Compiles your tex-file with pdflatex (and bibtex if bibtex=True)
     and writes a nicely formatted error message to the terminal.
@@ -15,6 +15,12 @@ def compilefile(filename, bibtex):
         try:
             proc = subprocess.Popen("pdflatex -file-line-error -interaction=nonstopmode %s" % filename, shell=True, stdout=subprocess.PIPE)
             procbib = subprocess.Popen("bibtex %s" % filename[0:-4], shell=True, stdout=DEVNULL)
+        except:
+            return False
+    elif biblatex:
+        try:
+            proc = subprocess.Popen("pdflatex -file-line-error -interaction=nonstopmode %s" % filename, shell=True, stdout=subprocess.PIPE)
+            procbib = subprocess.Popen("biber %s" % filename[0:-4], shell=True, stdout=DEVNULL)
         except:
             return False
     else:
@@ -59,10 +65,12 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("filename", help="the file you want to compile")
     parser.add_argument("-b", "--bibtex", help="choose this option if you are using bibtex", action="store_true")
+    parser.add_argument("-bl", "--biblatex", help="choose this option if you are using biblatex", action="store_true")
     args = parser.parse_args()
 
     filename = args.filename
     bibtex = args.bibtex
-    compilefile(filename, bibtex)
+    biblatex = args.biblatex
+    compilefile(filename, bibtex, biblatex)
 
 
