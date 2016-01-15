@@ -1,18 +1,18 @@
-# compile
+# ltx
 Compiles your tex-file twice with pdflatex and writes a nicely formatted error message to the terminal.
 
 Usage
 -----
 
-Clone the project and save compile.py to the same folder as your .tex-file.
+Clone the project and save ltx.py to the same folder as your .tex-file.
 
 ```bash
-$ ./compile.py --help
+$ ./ltx.py --help
 
-usage: compile.py [-h] [-b] filename
+usage: ltx.py [-h] [-b] filename
 
 positional arguments:
-  filename      the file you want to compile
+  filename      the file you want to ltx
 
 optional arguments:
   -h, --help    show this help message and exit
@@ -23,14 +23,14 @@ optional arguments:
 If you are not able to run the program by using using the `./`-prefix, try
 
 ```bash
-$ chmod +x compile.py
+$ chmod +x ltx.py
 ```
 
 Example
 -------
 
 ```bash
-$ ./compile.py master-thesis.tex -b
+$ ./ltx.py master-thesis.tex -b
  
 ------ERROR MESSAGE------
 Nothing
